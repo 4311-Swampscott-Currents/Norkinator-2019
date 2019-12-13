@@ -8,9 +8,12 @@ public class Robot extends FastRobot {
     
     private double heldAngle;
     private boolean isInTurnMode = false;
-    
-    public void teleopStart() {
+
+    public void robotStart() {
         RobotMap.gyroscope.reset();
+    }
+
+    public void teleopStart() {
         heldAngle = RobotMap.gyroscope.getAngle();
     }
 
@@ -24,7 +27,6 @@ public class Robot extends FastRobot {
         }
         if(RobotMap.MainJoystick.getRawButtonPressed(1)) {
             isInTurnMode = !isInTurnMode;
-            RobotMap.gyroscope.reset();
             heldAngle = RobotMap.gyroscope.getAngle();
         }
     }
